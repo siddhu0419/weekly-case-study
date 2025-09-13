@@ -234,32 +234,12 @@
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
-				"type": "Json",
+				"type": "Binary",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"fileName": "weblogs.json",
 						"container": "source"
-					}
-				},
-				"schema": {
-					"type": "object",
-					"properties": {
-						"SessionID": {
-							"type": "string"
-						},
-						"CustomerID": {
-							"type": "integer"
-						},
-						"Timestamp": {
-							"type": "string"
-						},
-						"PageVisited": {
-							"type": "string"
-						},
-						"DurationSeconds": {
-							"type": "integer"
-						}
 					}
 				}
 			},
@@ -277,15 +257,14 @@
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
-				"type": "Json",
+				"type": "Binary",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"folderPath": "bronze",
 						"fileSystem": "tiers"
 					}
-				},
-				"schema": {}
+				}
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/adls_ls')]"
@@ -445,24 +424,19 @@
 						"userProperties": [],
 						"typeProperties": {
 							"source": {
-								"type": "JsonSource",
+								"type": "BinarySource",
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
+									"recursive": true
 								},
 								"formatSettings": {
-									"type": "JsonReadSettings"
+									"type": "BinaryReadSettings"
 								}
 							},
 							"sink": {
-								"type": "JsonSink",
+								"type": "BinarySink",
 								"storeSettings": {
 									"type": "AzureBlobFSWriteSettings"
-								},
-								"formatSettings": {
-									"type": "JsonWriteSettings",
-									"filePattern": "arrayOfObjects"
 								}
 							},
 							"enableStaging": false
