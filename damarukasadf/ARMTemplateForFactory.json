@@ -370,7 +370,6 @@
 								"parameters": {}
 							},
 							"fieldList": [
-								"childItems",
 								"exists",
 								"itemName",
 								"itemType",
