@@ -1,0 +1,19 @@
+{
+	"name": "weblogsadls",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adls_ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "bronze",
+				"fileSystem": "tiers"
+			}
+		},
+		"schema": {}
+	}
+}
