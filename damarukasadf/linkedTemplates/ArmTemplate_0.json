@@ -589,8 +589,8 @@
 											"storeSettings": {
 												"type": "AzureBlobStorageReadSettings",
 												"recursive": true,
-												"prefix": {
-													"value": "@item()",
+												"wildcardFileName": {
+													"value": "@item().Name",
 													"type": "Expression"
 												},
 												"deleteFilesAfterCompletion": false
